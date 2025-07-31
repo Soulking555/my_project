@@ -1,0 +1,43 @@
+ body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      min-width: 250px;
+    }
+
+    .balance {
+      font-size: 24px;
+      color: green;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .deposit {
+      background-color: #28a745; /* Green */
+    }
+
+    .withdraw {
+      background-color: #dc3545; /* Red */
+    }
