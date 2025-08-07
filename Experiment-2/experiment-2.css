@@ -1,4 +1,7 @@
- body {
+/* Experiment-2/experiment-2.css */
+
+    /* General styles for the experiment */
+body {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -7,7 +10,8 @@
       margin: 0;
       font-family: Arial, sans-serif;
     }
-
+/* Card styles for the experiment
+We have added background colour,added padding(which adds space between the content and the border) */
     .card {
       background-color: white;
       padding: 40px;
