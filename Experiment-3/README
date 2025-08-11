@@ -1,0 +1,13 @@
+This HTML code creates a basic, single-page web application for an **Admin Dashboard**.
+It includes a `header` with the title "Admin Dashboard" and a checkbox to toggle between light and dark modes.
+ The `main` section contains a `nav` sidebar with links like "Home," "Users," and "Settings," as well as a `section` for the main content area. 
+ A `footer` displays copyright information. The accompanying JavaScript at the bottom of the `body` is what makes the dark mode toggle functional. 
+ When the checkbox with the `id` of `themeToggle` is checked or unchecked, an event listener is triggered that adds or removes the `dark` class from the `body` element. 
+ This class would then be used in a separate `styles.css` file to apply different color schemes and styles for the dark mode.
+
+ This CSS code styles the HTML structure of the Admin Dashboard. It defines a **light theme by default** and a **dark theme** that is activated when the `body` element has a `.dark` class. This is achieved by setting custom CSS properties (variables) like `--bg-color` and `--text-color` within the `:root` and `body.dark` selectors.
+
+The layout of the entire page is managed using **CSS Grid**.
+ The `body` is set up with three rows: an `auto`-sized row for the `header`, a `1fr` row for the `main` content that takes up the remaining vertical space, and another `auto`-sized row for the `footer`.
+ The `main` section is also a grid, with a fixed-width `nav` sidebar of `200px` and a flexible content `section` that takes up the rest of the horizontal space (`1fr`).
+ The styling also includes details for the header, footer, navigation links, and the dark mode switch component.

@@ -1,60 +1,62 @@
-:root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --sidebar-bg: #f0f0f0;
-    --header-footer-bg: #4CAF50;
-  }
-  
-  body.dark {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --sidebar-bg: #2c2c2c;
-    --header-footer-bg: #222;
-  }
-  
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+.dashboard {
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 280px auto;
+    grid-template-rows: 100px auto 50px;
     height: 100vh;
-  }
-  
-  header, footer {
-    background-color: var(--header-footer-bg);
-    padding: 10px;
+}
+
+header{
+    border: 1px solid #ffffff;
+    background-color: var(--bg-header);
     color: var(--text-color);
+    grid-column: 1/span 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  main {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-  }
-  
-  nav {
-    background-color: var(--sidebar-bg);
-    padding: 15px;
-    height: 100%;
-  }
-  
-  nav a {
-    display: block;
-    margin-bottom: 10px;
-    color: blue;
-    text-decoration: underline;
-  }
-  
-  section {
-    padding: 20px;
-  }
-  
-  .switch {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+    padding: 0 20px;
+}
+
+nav {
+    border: 1px solid #ffffff;
+    background-color: var(--bg-nav);
+    color: var(--text-color);
+}
+
+footer {
+    border: 1px solid #ffffff;
+    background-color: var(--bg-footer);
+    color: var(--text-color);
+    grid-column: 1/span 2;
+    text-align: center;
+}
+
+main {
+    border: 1px solid #ffffff;
+    background-color: var(--bg-main);
+    color: var(--text-color);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#themeToggle {
+    display: none;
+}
+
+:root {
+    --bg-header: #02c902;
+    --bg-nav: #e5e9e6;
+    --bg-main: #f0f0f0;
+    --bg-footer: #02c902;
+    --text-color: #000000;
+}
+
+#themeToggle:checked ~ .dashboard  {
+    --bg-header: #1b5e1f;
+    --bg-nav: #1a1a1a;
+    --bg-main: #2a2a2a;
+    --bg-footer: #1b5e1f;
+    --text-color: #ffffff;
+}
