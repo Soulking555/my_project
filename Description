@@ -39,7 +39,6 @@ textarea.addEventListener('input', () => {
     const newlineCount = (value.match(/\n/g) || []).length;
     charCount.textContent = value.length - newlineCount;
 });
-
 ```
 Adds an event listener for the input event.
 Reads the text entered by the user.
