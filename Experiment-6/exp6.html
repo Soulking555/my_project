@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>exp5 — Interactive SVG Drawing Tool</title>
+  <link rel="stylesheet" href="exp5.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>Interactive SVG Drawing Tool (exp5)</h1>
+      <div class="controls">
+        <label>Mode</label>
+        <select id="mode">
+          <option value="rect">Rectangle</option>
+          <option value="line">Line</option>
+        </select>
+        <label>Stroke</label>
+        <input id="strokeWidth" type="range" min="1" max="12" value="3" />
+        <input id="strokeColor" type="color" value="#06b6d4" />
+        <button id="undo" class="secondary">Undo</button>
+        <button id="clear">Clear</button>
+      </div>
+    </header>
+
+    <main class="canvas-wrap">
+      <section class="canvas">
+        <svg id="svgCanvas" tabindex="0" aria-label="Drawing canvas"></svg>
+        <p class="hint">Click & drag to draw. Shift+drag constrains rectangles to squares.</p>
+      </section>
+
+      <aside class="sidebar">
+        <h3>Info</h3>
+        <p>Shapes drawn: <span id="shapeCount">0 shapes</span></p>
+      </aside>
+    </main>
+  </div>
+
+  <script src="exp5.js"></script>
+</body>
+</html>
