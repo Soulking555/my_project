@@ -1,20 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-h2 {
-  font-weight: bold;
-}
-
-.drawing-container {
-  border: 2px solid black;
+* { box-sizing: border-box; }
+body { font-family: Arial, sans-serif; margin: 16px; }
+h2 { margin: 0 0 10px; }
+.frame {
+  border: 2px solid #000;
+  padding: 12px;
   display: inline-block;
-  padding: 10px;
+  background: #fff;
 }
-
-#drawingArea {
-  background-color: #f9f9f9;
-  border: 2px solid black;
+#board {
+  display: block;
+  background: #f4f6f8;
+  border: 2px solid #444;
   cursor: crosshair;
+  /* The element size (CSS pixels). The drawing buffer is set in JS for HiDPI. */
+  width: 800px;
+  height: 450px;
 }

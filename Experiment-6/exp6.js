@@ -1,44 +1,60 @@
-const svg = document.getElementById("drawingArea");
-let isDrawing = false;
-let currentPath = null;
+// --------- setup (document object only) ----------
+var canvas = document.getElementById('board');
+var ctx = canvas.getContext('2d');
 
-svg.addEventListener("mousedown", startDrawing);
-svg.addEventListener("mousemove", draw);
-svg.addEventListener("mouseup", stopDrawing);
-svg.addEventListener("mouseleave", stopDrawing);
+// HiDPI crispness: match backing store to devicePixelRatio
+(function scaleForHiDPI () {
+  var dpr = window.devicePixelRatio || 1;
 
-function startDrawing(event) {
-  isDrawing = true;
+  // current CSS size
+  var cssWidth  = parseInt(getComputedStyle(canvas).width, 10);
+  var cssHeight = parseInt(getComputedStyle(canvas).height, 10);
 
-  const { x, y } = getMousePosition(event);
+  canvas.width  = Math.floor(cssWidth  * dpr);
+  canvas.height = Math.floor(cssHeight * dpr);
 
-  currentPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  currentPath.setAttribute("stroke", "blue");
-  currentPath.setAttribute("stroke-width", "2");
-  currentPath.setAttribute("fill", "none");
-  currentPath.setAttribute("d", `M ${x} ${y}`);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // so drawing uses CSS pixel coords
+})();
 
-  svg.appendChild(currentPath);
-}
+// brush style (blue, thin, rounded)
+ctx.strokeStyle = '#1e90ff';
+ctx.lineWidth   = 2;
+ctx.lineCap     = 'round';
+ctx.lineJoin    = 'round';
 
-function draw(event) {
-  if (!isDrawing) return;
+// state
+var drawing = false;
 
-  const { x, y } = getMousePosition(event);
-  let d = currentPath.getAttribute("d");
-  d += ` L ${x} ${y}`;
-  currentPath.setAttribute("d", d);
-}
-
-function stopDrawing() {
-  isDrawing = false;
-  currentPath = null;
-}
-
-function getMousePosition(event) {
-  const rect = svg.getBoundingClientRect();
+// mouse helpers (client → canvas coords)
+function pos(e) {
+  var rect = canvas.getBoundingClientRect();
   return {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
   };
 }
+
+// --------- mouse events only ----------
+canvas.addEventListener('mousedown', function (e) {
+  drawing = true;
+  var p = pos(e);
+  ctx.beginPath();
+  ctx.moveTo(p.x, p.y);     // start stroke
+  e.preventDefault();
+});
+
+canvas.addEventListener('mousemove', function (e) {
+  if (!drawing) return;
+  var p = pos(e);
+  ctx.lineTo(p.x, p.y);     // extend stroke
+  ctx.stroke();             // render incrementally for smoothness
+});
+
+document.addEventListener('mouseup', function () {
+  if (!drawing) return;
+  drawing = false;
+  ctx.closePath();          // finish the current stroke
+});
+
+// optional: if cursor leaves canvas while drawing, stop
+canvas.addEventListener('mouseleave', function () { drawing = false; });
