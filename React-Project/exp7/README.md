@@ -32,12 +32,13 @@ This experiment demonstrates how React components can dynamically render differe
 ProductCard-Experiment/
 ├── index.html
 ├── src/
-│ ├── index.js # React entry point
-│ ├── App.js # Uses ProductCard with multiple products
-│ ├── ProductCard.js # Reusable component (props)
-│ └── App.css # Basic styles
+│   ├── index.js        # React entry point
+│   ├── App.js          # Uses ProductCard with multiple products
+│   ├── ProductCard.js  # Reusable component (props)
+│   └── App.css         # Basic styles
 ├── package.json
 └── README.md
+
 
 
 ---
