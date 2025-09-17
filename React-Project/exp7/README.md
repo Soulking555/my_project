@@ -51,7 +51,7 @@ ProductCard-Experiment/
     npm start
 4. Open http://localhost:3000/ in your browser
 
-📖 Learning Highlights
+## 📖 Learning Highlights
 
 1. Difference between hardcoding data vs. passing via props
 2. Creating reusable UI components
