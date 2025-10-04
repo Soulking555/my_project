@@ -1,17 +1,18 @@
 {
-  "dependencies": {
-    "express": "^5.1.0",
-    "mongoose": "^8.18.2"
-  },
-  "name": "experiment-13",
+  "name": "experiment-15",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "devDependencies": {},
+  "description": "E-commerce catalog with nested variants (learning experiment).",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"No tests for this experiment\" && exit 0"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.18.3"
+  }
 }
